@@ -1,32 +1,65 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "python",
+	"name": "python-comment-sql-syntax",
+	"scopeName": "source.python",
 	"patterns": [
 		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.python",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.python",
-			"begin": "\"",
-			"end": "\"",
+			"comment": "Python multi-line strings",
+			"begin": "(')(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX|select |insert into |delete |update |create table |create index)",
+			"beginCaptures": {
+				"2": {
+					"name": "comment.sql"
+				}
+			},
+			"end": "(')",
 			"patterns": [
 				{
-					"name": "constant.character.escape.python",
-					"match": "\\\\."
+					"include": "source.sql"
+				}
+			]
+		},
+		{
+			"comment": "Python multi-line strings",
+			"begin": "(\")(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX|select |insert into |delete |update |create table |create index)",
+			"beginCaptures": {
+				"2": {
+					"name": "comment.sql"
+				}
+			},
+			"end": "(\")",
+			"patterns": [
+				{
+					"include": "source.sql"
+				}
+			]
+		},
+		{
+			"begin": "(''')",
+			"beginCaptures": {
+				"2": {
+					"name": "comment.sql"
+				}
+			},
+			"end": "(''')",
+			"patterns": [
+				{
+					"include": "source.sql"
+				}
+			]
+		},
+		{
+			"begin": "(\"\"\")",
+			"end": "(\"\"\")",
+			"beginCaptures": {
+				"2": {
+					"name": "comment.sql"
+				}
+			},
+			"patterns": [
+				{
+					"include": "source.sql"
 				}
 			]
 		}
-	},
-	"scopeName": "source.sql"
+	]
 }

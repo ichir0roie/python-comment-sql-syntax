@@ -10,16 +10,17 @@
         "Programming Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "python",
-            "aliases": ["python", "python"],
-            "extensions": ["python"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "python",
-            "scopeName": "source.sql",
-            "path": "./syntaxes/python.tmLanguage.json"
-        }]
+        "grammars": [
+            {
+                "path": "./syntaxes/python.tmLanguage.json",
+                "scopeName": "source.python",
+                "injectTo": [
+                    "source.python"
+                ],
+                "embeddedLanguages": {
+                    "meta.embedded.sql": "sql"
+                }
+            }
+        ]
     }
 }
