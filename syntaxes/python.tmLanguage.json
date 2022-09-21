@@ -6,60 +6,80 @@
 		{
 			"comment": "Python multi-line strings",
 			"begin": "(')(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX|select |insert into |delete |update |create table |create index)",
+			"end": "(')",
 			"beginCaptures": {
-				"2": {
-					"name": "comment.sql"
+				"0": {
+					"name": "string"
 				}
 			},
-			"end": "(')",
 			"patterns": [
 				{
 					"include": "source.sql"
 				}
-			]
+			],
+			"endCaptures": {
+				"0": {
+					"name": "string"
+				}
+			}
 		},
 		{
 			"comment": "Python multi-line strings",
 			"begin": "(\")(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX|select |insert into |delete |update |create table |create index)",
+			"end": "(\")",
 			"beginCaptures": {
-				"2": {
-					"name": "comment.sql"
+				"0": {
+					"name": "string"
 				}
 			},
-			"end": "(\")",
 			"patterns": [
 				{
 					"include": "source.sql"
 				}
-			]
+			],
+			"endCaptures": {
+				"0": {
+					"name": "string"
+				}
+			}
 		},
 		{
 			"begin": "(''')",
+			"end": "(''')",
 			"beginCaptures": {
-				"2": {
-					"name": "comment.sql"
+				"0": {
+					"name": "string"
 				}
 			},
-			"end": "(''')",
 			"patterns": [
 				{
 					"include": "source.sql"
 				}
-			]
+			],
+			"endCaptures": {
+				"0": {
+					"name": "string"
+				}
+			}
 		},
 		{
 			"begin": "(\"\"\")",
 			"end": "(\"\"\")",
 			"beginCaptures": {
-				"2": {
-					"name": "comment.sql"
+				"0": {
+					"name": "string"
 				}
 			},
 			"patterns": [
 				{
 					"include": "source.sql"
 				}
-			]
+			],
+			"endCaptures": {
+				"0": {
+					"name": "string"
+				}
+			}
 		}
 	]
 }
