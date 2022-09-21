@@ -1,7 +1,9 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "python-comment-sql-syntax",
-	"scopeName": "source.python",
+	"scopeName": "python-comment-sql-syntax.injection",
+	"injectionSelector": [
+        "L:source -comment -string"
+    ],
 	"patterns": [
 		{
 			"comment": "Python multi-line strings",

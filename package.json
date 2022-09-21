@@ -20,8 +20,8 @@
     "contributes": {
         "grammars": [
             {
-                "path": "./syntaxes/python.tmLanguage.json",
-                "scopeName": "source.python",
+                "path": "./syntaxes/python.comment-sql-syntax.json",
+                "scopeName": "python-comment-sql-syntax.injection",
                 "injectTo": [
                     "source.python"
                 ],
