@@ -1,85 +1,53 @@
 {
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "python-comment-sql-syntax",
-	"scopeName": "python-comment-sql-syntax.injection",
+	"scopeName": "source.injection",
 	"injectionSelector": [
-        "L:source -comment -string"
-    ],
+		"L:source.python"
+	],
 	"patterns": [
 		{
-			"comment": "Python multi-line strings",
-			"begin": "(')(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX|select |insert into |delete |update |create table |create index)",
-			"end": "(')",
-			"beginCaptures": {
-				"0": {
-					"name": "string"
-				}
-			},
+			"begin": "(\\s*=\\s*)(\"\"\")",
+			"end": "\"\"\"",
 			"patterns": [
 				{
 					"include": "source.sql"
 				}
 			],
+			"beginCaptures": {
+				"0": {
+					"name": "source.python"
+				},
+				"2": {
+					"name": "string.quoted.multi.python"
+				}
+			},
 			"endCaptures": {
 				"0": {
-					"name": "string"
+					"name": "string.quoted.multi.python"
 				}
 			}
 		},
 		{
-			"comment": "Python multi-line strings",
-			"begin": "(\")(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX|select |insert into |delete |update |create table |create index)",
+			"begin": "(\\s*=\\s*)(\")",
 			"end": "(\")",
-			"beginCaptures": {
-				"0": {
-					"name": "string"
-				}
-			},
 			"patterns": [
 				{
+					"match": "\\s*(SELECT |INSERT INTO |DELETE |UPDATE |CREATE TABLE |CREATE INDEX|select |insert into |delete |update |create table |create index)",
 					"include": "source.sql"
 				}
 			],
-			"endCaptures": {
-				"0": {
-					"name": "string"
-				}
-			}
-		},
-		{
-			"begin": "(''')",
-			"end": "(''')",
 			"beginCaptures": {
 				"0": {
-					"name": "string"
+					"name": "source.python"
+				},
+				"2": {
+					"name": "string.quoted.multi.python"
 				}
 			},
-			"patterns": [
-				{
-					"include": "source.sql"
-				}
-			],
 			"endCaptures": {
 				"0": {
-					"name": "string"
-				}
-			}
-		},
-		{
-			"begin": "(\"\"\")",
-			"end": "(\"\"\")",
-			"beginCaptures": {
-				"0": {
-					"name": "string"
-				}
-			},
-			"patterns": [
-				{
-					"include": "source.sql"
-				}
-			],
-			"endCaptures": {
-				"0": {
-					"name": "string"
+					"name": "string.quoted.multi.python"
 				}
 			}
 		}

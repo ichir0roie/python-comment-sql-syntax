@@ -21,7 +21,7 @@
         "grammars": [
             {
                 "path": "./syntaxes/python.comment-sql-syntax.json",
-                "scopeName": "python-comment-sql-syntax.injection",
+                "scopeName": "source.injection",
                 "injectTo": [
                     "source.python"
                 ],
